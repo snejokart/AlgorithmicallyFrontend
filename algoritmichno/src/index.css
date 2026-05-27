@@ -1,3 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.animated-gradient {
+  background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899, #22d3ee, #6366f1);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 12s ease infinite;   /* ← замедлил до 12 секунд */
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Анимация при наведении на карточку */
+.lesson-card:hover .lesson-title {
+  animation: gradientShift 4s ease infinite;
+}
+
+@keyframes circle1 {
+  0% { transform: translate(0, 0); }
+  33% { transform: translate(80px, 0); }
+  66% { transform: translate(40px, 70px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes circle2 {
+  0% { transform: translate(80px, 0); }
+  33% { transform: translate(40px, 70px); }
+  66% { transform: translate(0, 0); }
+  100% { transform: translate(80px, 0); }
+}
+
+@keyframes circle3 {
+  0% { transform: translate(40px, 70px); }
+  33% { transform: translate(0, 0); }
+  66% { transform: translate(80px, 0); }
+  100% { transform: translate(40px, 70px); }
+}
+
+.animate-circle1 { animation: circle1 8s ease-in-out infinite; }
+.animate-circle2 { animation: circle2 8s ease-in-out infinite; }
+.animate-circle3 { animation: circle3 8s ease-in-out infinite; }
